@@ -1,6 +1,6 @@
 # probability-encoding
 
-A spiking-neural population that estimates a probability density from samples, using Spatial Semantic Pointers (SSPs) and a Function Inverse Estimator (FIE) normalization.
+A spiking-neural population that estimates a probability density from samples, using Spatial Semantic Pointers (SSPs) and a Fourier Integral Estimator (FIE) normalization.
 
 ## Description
 
@@ -14,7 +14,7 @@ where `phi(.)` is the SSP encoding function from `ssp_space` and `max_rate` is t
 
 The class exposes two construction modes via the `encoders` argument:
 
-- **Single-neuron** (`encoders=None`, default): one neuron with `encoder = mu`. Drive the network with a swept query SSP and the neuron's spike train traces the density over the sweep.
+- **Single-neuron** (`encoders=None`, default): one neuron with `encoder = mu`. Drive the network with a swept query SSP and the neuron's response curve traces the density over the sweep.
 - **Population** (`encoders = ssp_space.encode(query_points)`): one neuron per evaluation point. Drive with `mu` and the per-neuron firing rates across the population approximate `p(query_point)`.
 
 Both modes share the same underlying ensemble construction — the encoder matrix is the only knob that differs. See `examples/example_usage.py` for both demos and `examples/probability_encoding.ipynb` for Michael Furlong's original tutorial.
@@ -94,7 +94,7 @@ See Michael Furlong's tutorial notebook (`examples/probability_encoding.ipynb`) 
 This submission curates the spiking-implementation tutorial from the 2025 Nengo Summer School:
 
 ```
-Furlong, M. (2025). Probability Encodings — Spiking Implementation.
+Furlong, P.M. (2025). Probability Encodings — Spiking Implementation.
 Nengo Summer School tutorial.
 https://github.com/ctn-waterloo/summerschool2025/tree/main/tutorials/vsa_probability
 ```
